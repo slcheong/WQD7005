@@ -6,13 +6,7 @@ import pandas as pd
 import os
 import time
 
-
-
-#options = webdriver.ChromeOptions() 
-#driver = webdriver.Chrome(chrome_options=options)
-#options = Options()
-#options.add_argument('--headless')
-#options.add_argument('--disable-gpu')  # Last I checked this was necessary.
+#Define Download Path
 dirname = os.path.dirname(__file__)
 downloadPath = os.path.join(dirname, 'stockPrice').replace("/","\\")
 
@@ -41,7 +35,7 @@ async def crawKLCIList():
 async def crawStockPrice(key,filePath):
     options = webdriver.ChromeOptions() 
     ## Do not show browser   
-    options.add_argument('--headless')
+    # options.add_argument('--headless')
     ## handle ssl error msg in console
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--ignore-ssl-errors')
