@@ -1,4 +1,6 @@
-# Milestone 1 - https://www.youtube.com/watch?v=vDY9CDr3kmg&feature=youtu.be
+# Milestone 1
+
+Video Link -  - https://www.youtube.com/watch?v=vDY9CDr3kmg&feature=youtu.be
 
 The py file download historical stock prices from yahoo finance using selenium.
 
