@@ -35,7 +35,7 @@ async def crawKLCIList():
 async def crawStockPrice(key,filePath):
     options = webdriver.ChromeOptions() 
     ## Do not show browser   
-    # options.add_argument('--headless')
+    options.add_argument('--headless')
     ## handle ssl error msg in console
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--ignore-ssl-errors')
@@ -55,7 +55,7 @@ async def crawStockPrice(key,filePath):
     ## filter time = max
     driver.find_element(By.XPATH, '//*[@id="Col1-1-HistoricalDataTable-Proxy"]/section/div[1]/div[1]/div[1]/div/div/div/span').click()
     driver.find_element(By.XPATH, '//*[@id="dropdown-menu"]/div/ul[2]/li[4]/button').click()
-    
+    time.sleep(1)
     ## if same file name exist, remove it -- remove old data
     fileName = filePath+ "\\" + key+".KL.csv"
     if (os.path.exists(fileName)):
