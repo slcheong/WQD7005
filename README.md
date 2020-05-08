@@ -3,6 +3,8 @@ Most of the data is cleaned, so only remove rows with N/A values
 
 In Addition, prepared data for LSTM training
 
+Coding is in assignment folder
+
 # Milestone 2
 
 Video Link - https://youtu.be/NwjAwRKa8oc
