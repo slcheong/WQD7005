@@ -24,4 +24,5 @@ Create table for each stock then upload csv data into it.
 
 # Data Cleaning Assignment
 Most of the data is cleaned, so only remove rows with N/A values
+
 In Addition, prepared data for LSTM training
