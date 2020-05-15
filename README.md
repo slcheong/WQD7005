@@ -1,3 +1,20 @@
+# Data Preprocessing Assignment
+Most of the data is cleaned, so only remove rows with N/A values
+
+In Addition, prepared data for LSTM training
+
+Coding is in assignment folder
+
+# Milestone 2
+
+Video Link - https://youtu.be/NwjAwRKa8oc
+
+Install Hadoop, Hive & MYsql in Linux (Ubuntu)
+
+Run Hive with Mysql as metastore in Hadoop.
+
+Then use python to connect to hive.
+
 # Milestone 1
 
 Video Link -  - https://www.youtube.com/watch?v=vDY9CDr3kmg&feature=youtu.be
@@ -10,14 +27,7 @@ Need to install python selenium package before run the code.
 
 The download process should take around 5 minutes, depend on network connection  
 
-# Milestone 2
 
-Video Link - https://youtu.be/NwjAwRKa8oc
-
-Install Hadoop, Hive & MYsql in Linux (Ubuntu)
-
-Run Hive with Mysql as metastore in Hadoop.
-
-Then use python to connect to hive.
 
 Create table for each stock then upload csv data into it.
+
