@@ -1,3 +1,10 @@
+# Milestone 3
+
+Video Link - https://youtu.be/5pnz_YmsWeA
+
+Retrive Data From Hive Server
+
+
 # Data Preprocessing Assignment
 Most of the data is cleaned, so only remove rows with N/A values
 
