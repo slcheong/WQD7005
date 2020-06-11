@@ -1,0 +1,107 @@
+
+ <div class="card container mt-3 mb-3">
+      <div class="card-body">
+        <h5 class="card-title text-center">Project Description</h5>
+        <p class="card-text">&nbsp; &nbsp;This prediction utilized 20 years KLCI historical data, feeded into a RNN-LSTM deep learning model. 
+        A 61 days prediction is made using said model, which included prediciton of pass 60 trading days, and next trading day.
+        Closing price and next trading day prediction are automatically updated after 530pm on trading day.</p>
+        
+        <p> &nbsp; &nbsp;The accuracy of the prediction is measured by Root Mean Squared Error. 
+        However due to the nature of KLCI index, RMSE will seem too high. 
+        Thus a Normalized RMSE is provided by divided RMSE with mean.
+        RMSE and NRMSE is calculated base on pass 60 days predictions vs actual closing price.</p>
+        <p>&nbsp; &nbsp;This app is deployed at Google Cloud VM with limited ram. The code has been improve to optimize the performance</p>
+        
+        <p class="card-text text-right">Prepared by: Cheong Soon Loong </p>
+      </div>
+    </div>
+    <h3 class="d-flex justify-content-center">Kuala Lumpur Composite Index Prediction</h1>
+    <div class="chart-container" style="position: relative; min-height:400px; min-width:360px">
+        <canvas id="myChart"></canvas>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 mt-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">{{predictPrice[60]}}</h5>
+            <p class="card-text">KLCI Prediction on <span id="last-date"></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 mt-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">{{ rmse }}</h5>
+            <p class="card-text">Root Mean Squared Error</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 mt-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">{{ nrmse }}</h5>
+            <p class="card-text">Normalized Root Mean Squared Error</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+<script>
+
+    var ctx = document.getElementById('myChart');
+    var date = [
+      {% for d in date%}
+        moment("{{d}}","YYYY-MM-DD").format("MMM DD, YYYY"),
+      {% endfor %}
+      ];
+    var closePrice = [
+      {% for d in close %}
+        {{d}},
+      {% endfor %}];
+
+    var pPrice = [
+    {% for d in predictPrice %}
+        {{ d }},
+    {% endfor %}
+    ];
+    $('#last-date').text(date[60]);
+    var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: date,
+      datasets: [{ 
+          data: closePrice,
+          label: "Actual KLCI Index",
+          borderColor: "#3e95cd",
+          fill: false
+        }, { 
+          data: pPrice,
+          label: "Predicted KLCI Index",
+          borderColor: "#8e5ea2",
+          fill: false
+        }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false,
+      title: {
+        display: true,
+        text: 'KLCI Closing Price Predictions'
+      },
+      scales:{
+          xAxes: [{
+              distribution: 'series',
+              ticks: {
+                  autoSkip: true,
+                  minRotation: 0,
+                  maxRotation: 0
+              }
+          }]
+      }
+
+    }
+  });
+    </script>
+</html>
